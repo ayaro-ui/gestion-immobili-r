@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
-    UserControlle,
+    UserController,
     UtilisateurController,
     BienImmobilierController,
     ImageImmobilierController,
