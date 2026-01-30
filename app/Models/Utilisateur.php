@@ -13,7 +13,16 @@ class Utilisateur extends Model
     protected $table = 'utilisateur'; // 👈 sans s
     protected $primaryKey = 'id_user';
     public $timestamps = false;
-
+ 
+   protected $fillable = [
+        'nom',
+        'prenom',
+        'email',
+        'mot_de_passe',
+        'telephone',
+        'date_inscription',
+        'id_role'
+    ];
     public function role()
     {
         return $this->belongsTo(Role::class, 'id_role');

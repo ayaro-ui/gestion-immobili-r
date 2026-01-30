@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     PaiementController,
     TransactionController,
     FavoriController,
-    ContactController
+    ContactController,
+    RoleController
 };
 
 Route::apiResource('users', UserController::class);
@@ -21,3 +22,4 @@ Route::post('paiements', [PaiementController::class, 'store']);
 Route::apiResource('transactions', TransactionController::class);
 Route::apiResource('favoris', FavoriController::class);
 Route::post('contact', [ContactController::class, 'store']);
+Route::apiResource('roles', RoleController::class);

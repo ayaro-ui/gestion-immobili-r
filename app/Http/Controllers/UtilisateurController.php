@@ -12,11 +12,21 @@ class UtilisateurController extends Controller
         return Utilisateur::with('role')->get();
     }
 
-    public function store(Request $request) {
-        $request['mot_de_passe'] = Hash::make($request->mot_de_passe);
-        return Utilisateur::create($request->all());
-    }
+    public function store(Request $request)
+    {
+        $user = Utilisateur::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'email' => $request->email,
+            'mot_de_passe' => bcrypt($request->mot_de_passe),
+            'telephone' => $request->telephone,
+            'date_inscription' => now(),
+            'id_role' => $request->id_role
+        ]);
 
+        return response()->json($user, 201);
+    }
+   
     public function show($id) {
         return Utilisateur::with('role')->findOrFail($id);
     }
